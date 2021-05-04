@@ -25,6 +25,17 @@ function max(num1 , num2) {
   // ---------------------
   // Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
   // ---------------------
+  function maxOfThree(num1 , num2 , num3) {
+    var result;
+      if  (num1 > num2 && num1 > num3) {
+        result = num1;
+      } if  (num2 > num1 && num2 > num3) {
+        result = num2;
+      } if  (num3 > num1 && num3 > num2) {
+        result = num3;
+      }
+        return result
+      }
 
 
 
