@@ -33,6 +33,9 @@ function doSomethingCool() {
 
 // Put your answer below -------------------------
 
+function() {
+  console.log("Something Cool!");
+}
 
 // -----------------------------------------------
 
@@ -53,6 +56,10 @@ setTimeout(sayHi, 2000);
 
 // Put your answer below -------------------------
 
+setTimeout(function () {
+  alert("Hello, World!");
+} setTimeout((), 2000);
+}
 
 // -----------------------------------------------
 
