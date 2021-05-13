@@ -33,11 +33,13 @@ function doSomethingCool() {
 
 // Put your answer below -------------------------
 
-// function() {
-//   console.log("Something Cool!");
-// }
+let somethingElseCool = function () {
+  console.log('Something Cool!');
+}
 
 // -----------------------------------------------
+// var x = function (a, b) {return a * b};
+// var z = x(4, 3);
 
 //////////////////////////////////////////////////
 //////////////////////////////////////////////////
@@ -48,18 +50,21 @@ function doSomethingCool() {
 // after 2 seconds. Refactor to use an anonymous
 // function
 
-function sayHi() {
-  alert("Hello, World!");
-}
+///////////////////////// I commented them out after completing to stop the alerts /////////////////
 
-setTimeout(sayHi, 2000);
-
-// Put your answer below -------------------------
-
-// setTimeout(function () {
+// function sayHi() {
 //   alert("Hello, World!");
-// } setTimeout((), 2000);
 // }
+//
+// setTimeout(sayHi, 2000);
+//
+// // Put your answer below -------------------------
+//
+// let sayHello = function () {
+//   alert("Helloooo, World!")
+// }
+//
+// setTimeout(sayHello, 2000);
 
 // -----------------------------------------------
 
@@ -88,7 +93,22 @@ setTimeout(function(){
 letter = "z";
 console.log("The letter is", letter);
 
+////////// trials-
+
+// var letter = "x";
+//
+//
+// var  letter = "y";
+//   console.log("The letter is", letter);
+//
+//
+// letter = "z";
+// console.log("The letter is", letter);
+
 // Put your answer below -------------------------
+
+  // The answer is [C]:
+            // This is because a setTimeout function is being called, which means that all of the other code is run first. Even if 1 (1 milisecond) is changed to 0, "z" will still be console logged first, because that code is running first due to setTimeout still being called on the function. X will not appear in the console. In order to have x appear in the console, you would have to add console.log("x"); or, use it as a variable in a function.
 
 
 // -----------------------------------------------
@@ -112,8 +132,11 @@ var reverseStr = function(str) {
 
 // Put your answer below -------------------------
 
+function reverse(str) {
+  return str.split('').reverse().join('');
+}
 
-
+console.log(reverse("kate"));
 // -----------------------------------------------
 
 //////////////////////////////////////////////////
@@ -127,27 +150,42 @@ var reverseStr = function(str) {
 // Refactor this function to use an object
 // instead of an if/else statement.
 
+var translateColors = {
+  rojo : "#ff0000",
+  blanco : "#ffffff",
+  azul : "#0000ff",
+  verde : "#00ff00",
+  negro : "#000000",
+}
+
 var spanishColor = function(colorName) {
-  if (colorName.toLowerCase() === "rojo") {
-    return "#ff0000";
-  }
-  else if (colorName.toLowerCase() === "blanco") {
-    return "#ffffff";
-  }
-  else if (colorName.toLowerCase() === "azul") {
-    return "#0000ff";
-  }
-  else if (colorName.toLowerCase() === "verde") {
-    return "#00ff00";
-  }
-  else if (colorName.toLowerCase() === "negro") {
-    return "#000000";
-  }
+
+    return translateColors[colorName.toLowerCase()];
+
+  // calling to lowercase against string value that's being passed in.
+
+  // if (colorName.toLowerCase() === "rojo") {
+  //   return "#ff0000";
+  // }
+  // else if (colorName.toLowerCase() === "blanco") {
+  //   return "#ffffff";
+  // }
+  // else if (colorName.toLowerCase() === "azul") {
+  //   return "#0000ff";
+  // }
+  // else if (colorName.toLowerCase() === "verde") {
+  //   return "#00ff00";
+  // }
+  // else if (colorName.toLowerCase() === "negro") {
+  //   return "#000000";
+  // }
+
+
+
 };
 
-// Put your answer below -------------------------
 
-
+console.log(spanishColor('Rojo'));
 
 // -----------------------------------------------
 
@@ -161,11 +199,15 @@ var spanishColor = function(colorName) {
 // Break it up so that the declaration and
 // assignment are happening on 2 seperate lines.
 
-var foo = "bar";
+// var foo = "bar";
 
 // Put your answer below -------------------------
 
+var foo;
 
+foo = "bar";
+
+console.log(foo);
 // -----------------------------------------------
 
 //////////////////////////////////////////////////
@@ -185,10 +227,25 @@ var callTenTimes = function(callback) {
   range.forEach(callback);
 };
 
+
+const sayHi = function() {
+  console.log('Hi');
+}
+
+// console.log(callTenTimes(sayHi));
+
+
 // callTenTime(functionName);
 
 // Put your answer below -------------------------
 
+
+var callNTimes = function(callback, number) {
+  var range = Array.from(Array(number).keys());
+  range.forEach(callback);
+};
+
+callNTimes(sayHi, 5);
 
 // -----------------------------------------------
 
@@ -217,6 +274,15 @@ var decreaseScore = function() {
 
 // Put your answer below -------------------------
 
+const initialScore = 0;
+
+let incrementScore = function() {
+  initialScore++;
+};
+
+let decrementScore = function() {
+  initialScore--;
+};
 
 
 // -----------------------------------------------
@@ -236,9 +302,17 @@ var addNumbers = function(numberA, numberB) {
 
 var twoPlusTwo = addNumbers(2,2);
 
+  console.log(twoPlusTwo);
+
 // Put your answer below -------------------------
 
+var addNum = function(numA, numB) {
+  return numA + numB;
+};
 
+var twoPtwo = addNum(2,2);
+
+  console.log(twoPtwo);
 
 // -----------------------------------------------
 
@@ -263,9 +337,20 @@ var accelerate = function(amount) {
   speed += amount;
 };
 
+console.log(accelerate());
+
 // Put your answer below -------------------------
 
+// If an argument is not passed in, then 'amount' is NaN, and the operand of an argument is NaN (ex. 0 + NaN).
 
+var speeds = 0;
+
+var accelerates = function(amounts = 1) {
+
+  return speeds += amounts;
+};
+
+console.log(accelerates());
 
 // -----------------------------------------------
 
