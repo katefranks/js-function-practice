@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict';
 
   // ---------------------
@@ -21,6 +21,14 @@ function max(num1 , num2) {
       return result
     }
 
+// alternate solution:
+function max(num1, num2) {
+  if (num1 > num2) {
+    return num1;
+  } else {
+    return num2;
+  }
+}
 
   // ---------------------
   // Define a function maxOfThree() that takes three numbers as arguments and returns the largest of them.
@@ -37,6 +45,12 @@ function max(num1 , num2) {
         return result
       }
 
+// alternate solution
+function maxOfThree(num1 , num2 , num3) {
+  return Math.max(num1, num2, num3);
+}
+
+// or:
 
 
   // ---------------------
@@ -50,6 +64,20 @@ function isVowel(s) {
     result = false;
   }
     return result
+}
+
+// alternate solution:
+function isVowel(char) {
+  return 'aeiou'.includs(char);
+}
+
+// or
+function isVowel(s) {
+  if(s == "a" || s == "e" || s == "i" || s == "o" || s == "u") {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 
@@ -69,6 +97,32 @@ function isVowel(s) {
   // }
 // loop over string and console log every character
 
+function rovarspraket(text) {
+  let translation = '';
+  text.toLowerCase().split('').forEach(function(char) {
+    if('bcdfghjklmnpqrstvwxyz'.includes(char)) {
+      translation += char + 'o' + char;
+    } else {
+      translation += char;
+      // translation = translation + char;
+    }
+  });
+  return translation;
+}
+
+// alternate solution
+
+// function rovarspraket(text) {
+//   textArray = text.toLowerCase().split('');
+//   for  (let i= 0; i < textArray.length; i++) {
+//     if ('bcdfghjklmnpqrstvwxyz'.includes(textArray[i])) {
+//       textArray[i] = textArray[i] + 'o' + textArray[i];
+//     }
+//   }
+//   return textArray.join('');
+// }
+
+
   // ---------------------
   // Define a function sum() and a function multiply() that sums and multiplies (respectively) all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and multiply([1,2,3,4]) should return 24.
   // ---------------------
@@ -87,6 +141,24 @@ function isVowel(s) {
   //     }
   //     return total;
 
+function sum(arr) {
+//   arr.reduce(function(acc, i))
+// }
+let total = 0;
+for(let i =0; i < arr.length; i++) {
+  total += arr[i]
+}
+  return total;
+}
+
+// for multiplication let total = 1, and total *
+function multiply(arr) {
+  let total = 1;
+  for(let i =0; i < arr.length; i++) {
+    total *= arr[i]
+  }
+    return total;
+}
 
 
   // ---------------------
@@ -103,7 +175,21 @@ function reverse(str) {
     }
     return newStr;
 }
-console.log(reverse("Kate"));
+// console.log(reverse("Kate"));
+
+// alternate solution
+function reverse(str) {
+  return str.split('').reverse().join('');
+}
+
+// or
+function reverse(str) {
+let newString = '';
+for(let i = 0; i < str.length; i++) {
+  newString = str.charAt(i) + newString;}
+  return newString;
+}
+// if you instead wanted to add letting to front of word you wouold decrement i--
 
 
   // ---------------------
@@ -119,6 +205,17 @@ console.log(reverse("Kate"));
 // }
 //   return longestWord;
 // }
+
+function findLongestWord(arr) {
+  let length = 0;
+  for(let i = 0; i < arr.length; i++) {
+    if (arr[i].length > length) {
+      length = arr[i].length;
+    }
+  }
+  return length;
+}
+
 
 // ***This message is saying "str.split is not a function"
 
@@ -142,12 +239,41 @@ function filterLongWords(arr, i) {
     return filter;
 }
 
+// alternate solution
+function filterLongWords(arr, i) {
 
+  return arr.filter(function(word){
+    return word.length > 1
+  });
+}
 
+// or
+
+function filterLongWords(arr, i) {
+let newArray = [];
+
+for(let j = 0; j < arr.length; j++) {
+  if(arr[j].length > i) {
+    newArray.push(arr[j]);
+  }
+}
+return newArray;
+}
   // ---------------------
   // Define a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
   // ---------------------
 
+function charFreq(str) {
+  const freqList = {};
+
+  str.split('').forEach(function(char) {
+    freqList[char] = freqList[char] + 1 || 1;
+  });
+  return freqList;
+}
+
+// . notation will specifically target the property of a character. ex- freq.List.char
+//  vs freqList[char]
 
   ////////////////////////////////////////////////////////////////////////
   /////////////////////////DO NOT CHANGE CODE BELOW///////////////////////
@@ -165,15 +291,15 @@ function filterLongWords(arr, i) {
 
   console.assert(isVowel('b') == false, 'ERROR function isVowel');
 
-  // console.assert(rovarspraket("this is fun") === "tothohisos isos fofunon", 'ERROR function rovarspraket');
+  console.assert(rovarspraket("this is fun") === "tothohisos isos fofunon", 'ERROR function rovarspraket');
 
-  // console.assert(sum([1, 2, 3, 4]) === 10, 'ERROR function sum');
+  console.assert(sum([1, 2, 3, 4]) === 10, 'ERROR function sum');
 
-  // console.assert(multiply([1, 2, 3, 4]) === 24, 'ERROR function multiply');
+  console.assert(multiply([1, 2, 3, 4]) === 24, 'ERROR function multiply');
 
   console.assert(reverse('jag testar') === 'ratset gaj', 'ERROR function reverse');
 
-  // console.assert(findLongestWord(['hello', 'world', 'does','anyone', 'really', 'know', 'what', 'time', 'it', 'is']) === 6, 'ERROR function findLongestWord');
+  console.assert(findLongestWord(['hello', 'world', 'does','anyone', 'really', 'know', 'what', 'time', 'it', 'is']) === 6, 'ERROR function findLongestWord');
 
   console.assert(filterLongWords(['hello', 'world', 'does','anyone', 'really', 'know', 'what', 'time', 'it', 'is'], 4).length === 4, 'ERROR function filterLongWords');
 
